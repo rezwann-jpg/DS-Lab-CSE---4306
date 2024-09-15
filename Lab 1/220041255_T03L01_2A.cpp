@@ -4,15 +4,12 @@
 #include <string>
 
 int main() {
-    std::vector<int> targetArray = {1, 2, 3};
-    // int num, N;
+    std::vector<int> targetArray;
+    int num;
 
-    // num = 0;
-    // while (std::cin >> num && num != -1) {
-    //     targetArray.push_back(num);
-    // }
-
-    // std::cin >> N;
+    while (std::cin >> num && num != -1) {
+        targetArray.push_back(num);
+    }
 
     std::stack<std::string> operations;
 
