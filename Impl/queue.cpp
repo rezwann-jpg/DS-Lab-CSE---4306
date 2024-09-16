@@ -108,3 +108,180 @@ int main()
    Q.Dequeue();	  Q.Print();
    Q.Enqueue(8);  Q.Print();
 }
+
+#include <iostream>
+#include <stdexcept>
+
+template <typename T>
+class CircularQueue {
+private:
+    T* arr;
+    int front;
+    int rear;
+    int capacity;
+    int size;
+
+    void resize(int newCapacity) {
+        T* newArr = new T[newCapacity];
+        int j = 0;
+        for (int i = 0; i < size; i++) {
+            newArr[j] = arr[(front + i) % capacity];
+            j++;
+        }
+        delete[] arr;
+        arr = newArr;
+        capacity = newCapacity;
+        front = 0;
+        rear = size - 1;
+    }
+
+public:
+    CircularQueue(int cap) : capacity(cap), front(-1), rear(-1), size(0) {
+        arr = new T[capacity];
+    }
+
+    ~CircularQueue() {
+        delete[] arr;
+    }
+
+    void enqueue(T value) {
+        if (isFull()) {
+            throw std::overflow_error("Queue is full");
+        }
+        if (isEmpty()) {
+            front = 0;
+        }
+        rear = (rear + 1) % capacity;
+        arr[rear] = value;
+        size++;
+    }
+
+    T dequeue() {
+        if (isEmpty()) {
+            throw std::underflow_error("Queue is empty");
+        }
+        T value = arr[front];
+        if (front == rear) {
+            front = rear = -1;
+        } else {
+            front = (front + 1) % capacity;
+        }
+        size--;
+        return value;
+    }
+
+    T peek() const {
+        if (isEmpty()) {
+            throw std::underflow_error("Queue is empty");
+        }
+        return arr[front];
+    }
+
+    bool isEmpty() const {
+        return size == 0;
+    }
+
+    bool isFull() const {
+        return size == capacity;
+    }
+
+    int getSize() const {
+        return size;
+    }
+
+    void display() const {
+        if (isEmpty()) {
+            std::cout << "Queue is empty" << std::endl;
+            return;
+        }
+        int i = front;
+        int count = 0;
+        while (count < size) {
+            std::cout << arr[i] << " ";
+            i = (i + 1) % capacity;
+            count++;
+        }
+        std::cout << std::endl;
+    }
+};
+
+#include <iostream>
+#include <stdexcept>
+
+template <typename T>
+class LinearQueue {
+private:
+    T* arr;
+    int front;
+    int rear;
+    int capacity;
+    int size;
+
+public:
+    LinearQueue(int cap) : capacity(cap), front(0), rear(-1), size(0) {
+        arr = new T[capacity];
+    }
+
+    ~LinearQueue() {
+        delete[] arr;
+    }
+
+    void enqueue(T value) {
+        if (isFull()) {
+            throw std::overflow_error("Queue is full");
+        }
+        rear++;
+        arr[rear] = value;
+        size++;
+    }
+
+    T dequeue() {
+        if (isEmpty()) {
+            throw std::underflow_error("Queue is empty");
+        }
+        T value = arr[front];
+        front++;
+        size--;
+        return value;
+    }
+
+    T peek() const {
+        if (isEmpty()) {
+            throw std::underflow_error("Queue is empty");
+        }
+        return arr[front];
+    }
+
+    bool isEmpty() const {
+        return size == 0;
+    }
+
+    bool isFull() const {
+        return rear == capacity - 1;
+    }
+
+    int getSize() const {
+        return size;
+    }
+
+    void display() const {
+        if (isEmpty()) {
+            std::cout << "Queue is empty" << std::endl;
+            return;
+        }
+        for (int i = front; i <= rear; i++) {
+            std::cout << arr[i] << " ";
+        }
+        std::cout << std::endl;
+    }
+
+    void reset() {
+        if (front > 0 && rear < capacity - 1) {
+            for (int i = 0; i < size; i++) {
+                arr[i] = arr[front + i];
+            }
+            rear = size - 1;
+            front = 0;
+        }
+    }
+};
