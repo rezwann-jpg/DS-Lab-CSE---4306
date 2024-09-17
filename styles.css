@@ -1,0 +1,73 @@
+:root {
+    --primary-color: #4a4a4a;
+    --accent-color: #6b705c;
+    --background-color: #fffcf2;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: var(--primary-color);
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    background-color: var(--background-color);
+}
+
+header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 20px;
+}
+
+.profile-pic {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 30px;
+    border: 3px solid var(--accent-color);
+}
+
+.header-text {
+    font-family: 'Caveat', cursive;
+}
+
+h1 {
+    font-size: 3rem;
+    margin: 0;
+    color: var(--accent-color);
+}
+
+h2 {
+    font-family: 'Caveat', cursive;
+    color: var(--accent-color);
+    font-size: 2rem;
+    border-bottom: 1px solid var(--accent-color);
+    padding-bottom: 10px;
+}
+
+p {
+    font-weight: 300;
+}
+
+.tagline {
+    font-style: italic;
+    color: var(--accent-color);
+}
+
+.pdf-container {
+    margin-top: 30px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.pdf-embed {
+    width: 100%;
+    height: 500px;
+    border: none;
+}
