@@ -1,3 +1,90 @@
+# Asymptotic Notation
+
+## Introduction
+
+Asymptotic notation is a mathematical tool used in computer science to analyze algorithm efficiency. It provides a way to describe the performance or complexity of an algorithm without relying on machine-specific constants or implementation details. This allows for meaningful comparisons between algorithms based on their fundamental trends as input sizes approach infinity.
+
+## Main Asymptotic Notations
+
+1. Big-O Notation (O-notation)
+2. Omega Notation (Ω-notation)
+3. Theta Notation (Θ-notation)
+
+### 1. Theta Notation (Θ-notation)
+
+Theta notation encloses the function from above and below. Since it represents the upper and the lower bound of the running time of an algorithm, it is used for analyzing the average-case complexity of an algorithm. Theta (Average Case) You add the running times for each possible input combination and take the average in the average case.
+
+A simple way to get the Theta notation of an expression is to drop low-order terms and ignore leading constants. For example, Consider the expression $3n^3 + 6n^2 + 6000 = Θ(n^3)$, the dropping lower order terms is always fine because there will always be a number(n) after which $Θ(n^3)$ has higher values than $Θ(n^2)$ irrespective of the constants involved. For a given function $g(n)$, we denote $Θ(g(n))$ is following set of functions. 
+
+
+#### Visual Representation:
+Let $g$ and $f$ be the function from the set of natural numbers to itself. The function $f$ is said to be $Θ(g)$, if there are constants $c1, c2 > 0$ and a natural number $n_0$ such that $c_1* g(n) ≤ f(n) ≤ c_2 * g(n)$ for all $n ≥ n_0$
+
+![Theta graph](https://media.geeksforgeeks.org/wp-content/uploads/20220822015828/thetanotation.png "Theta")
+
+#### Key Points:
+- The execution time serves as both a lower and upper bound on the algorithm’s time complexity. 
+- It exist as both, most, and least boundaries for a given input value.
+- Used for analyzing average-case complexity
+
+### 2. Big O Notation (O-notation)
+
+Big-O notation represents the upper bound of the running time of an algorithm. Therefore, it gives the worst-case complexity of an algorithm.
+
+For example, Consider the case of Insertion Sort. It takes linear time in the best case and quadratic time in the worst case. We can safely say that the time complexity of the Insertion sort is $O(n^2)$. 
+Note: $O(n^2)$ also covers linear time. 
+
+If we use $Θ$ notation to represent the time complexity of Insertion sort, we have to use two statements for best and worst cases: 
+
+- The worst-case time complexity of Insertion Sort is $Θ(n^2)$.
+- The best case time complexity of Insertion Sort is $Θ(n)$. 
+
+#### Definition:
+If $f(n)$ describes the running time of an algorithm, $f(n)$ is $O(g(n))$ if there exist a positive constant $c$ and $n_0$ such that, $0 ≤ f(n) ≤ cg(n)$ for all $n ≥ n_0$
+
+#### Visual Representation:
+![Big Oh](https://media.geeksforgeeks.org/wp-content/uploads/AlgoAnalysis-2.png "Big oh")
+
+#### Key Points:
+
+- It is the most widely used notation for Asymptotic analysis.
+- It specifies the upper bound of a function.
+- The maximum time required by an algorithm or the worst-case time complexity.
+- It returns the highest possible output value(big-O) for a given input.
+- Big-O(Worst Case) It is defined as the condition that allows an algorithm to complete statement execution in the longest amount of time possible.
+
+### 3. Omega Notation (Ω-notation)
+
+Omega notation represents the lower bound of the running time of an algorithm. Thus, it provides the best case complexity of an algorithm.
+
+Let us consider the same Insertion sort example here. The time complexity of Insertion Sort can be written as $Ω(n)$, but it is not very useful information about insertion sort, as we are generally interested in worst-case and sometimes in the average case. 
+
+#### Definition:
+Let $g$ and $f$ be the function from the set of natural numbers to itself. The function $f$ is said to be $Ω(g)$, if there is a constant $c > 0$ and a natural number $n_0$ such that $c*g(n) ≤ f(n)$ for all $n ≥ n_0$
+
+#### Visual Representation:
+![Omega](https://media.geeksforgeeks.org/wp-content/uploads/AlgoAnalysis-3.png "Omega")
+
+#### Key Points:
+- The execution time serves as a lower bound on the algorithm’s time complexity.
+
+- It is defined as the condition that allows an algorithm to complete statement execution in the shortest amount of time.
+
+
+## Common Time Complexities
+
+1. $O(1)$ - Constant time
+2. $O(log n)$ - Logarithmic time
+3. $O(n)$ - Linear time
+4. $O(n log n)$ - Linearithmic time
+5. $O(n^2)$ - Quadratic time
+6. $O(2^n)$ - Exponential time
+
+### Comparison Graph
+![](https://www.boardinfinity.com/blog/content/images/2022/10/o--9-.jpg)
+
+This graph illustrates the relative growth rates of different time complexities. As n increases, the differences between these functions become more pronounced.
+
 # Heap Implementation in C++
 
 ## Introduction
@@ -11,9 +98,9 @@
 ## Heap Representation
 - Heaps are often stored in arrays for faster access and modification.
 - Index calculations (0-based):
-  - Left child: `2 * i + 1`
-  - Right child: `2 * i + 2`
-  - Parent: `(i - 1) / 2`
+  - Left child: $2 * i + 1$
+  - Right child: $2 * i + 2$
+  - Parent: $(i - 1) / 2$
 
 ## C++ Implementation
 ```cpp
