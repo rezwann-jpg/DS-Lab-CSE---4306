@@ -443,3 +443,105 @@ The Build Heap operation is a crucial first step in Heap Sort. It transforms the
 
 ## Implementation Note
 In practice, the Heap Sort algorithm would use the `heapify` function repeatedly. The initial Build Heap operation would call `heapify` on all non-leaf nodes, and then the sorting phase would call `heapify` on the root after each swap operation.
+
+
+# C++ Linked Lists: Types, Structure, and Operations
+
+## Definition
+A linked list in C++ is a linear data structure that stores data in non-contiguous memory locations. Each node contains a value and a pointer to the next node. A linked list is defined as a collection of nodes where each node consists of two members which represents its value and a next pointer which stores the address for the next node.
+
+## Types of Linked Lists
+
+1. **Singly Linked List**: The singly linked list is the simplest form of linked list in which the node contain two members data and a next pointer that stores the address of the next node. Each node is a singly linked list is connected through the next pointer and the next pointer of the last node points to NULL denoting the end of the linked list. The following diagram describes the structure of a singly linked list:
+
+![Single Linked List](https://media.geeksforgeeks.org/wp-content/uploads/20240607183512/Sinlgy-Linked-List.png)
+
+2. **Doubly Linked List**: The doubly linked list is the modified version of the singly linked list where each node of the doubly linked consists of three data members data ,next and prev. The prev is a pointer that stores the address of the previous node in the linked list sequence. Each node in a doubly linked list except the first and the last node is connected with each other through the prev and next pointer. The prev pointer of the first node and the next pointer of the last node points to NULL in the doubly linked list. The following diagram describes the structure of a doubly linked list:
+
+![Doubly linked list](https://media.geeksforgeeks.org/wp-content/uploads/20240607183511/Doubly-Linked-List.png)
+
+3. **Circular Linked List**: The circular linked list is almost same as the singly linked list but with a small change. In a circular linked list the next pointer of the last node points to the first node of the linked list rather than pointing to NULL, this makes this data structure circular in nature which is used in various applications like media players. The following diagram describes the structure of a circular linked list:
+
+![Circular linked list](https://media.geeksforgeeks.org/wp-content/uploads/20240607183510/Circular-Linked-List.png)
+
+4. **Doubly Circular Linked List**: The doubly circular linked list is a combination of a doubly linked list and a circular linked list. In a doubly circular linked list the prev pointer of the first node points to the last node and the next pointer of the last node points to the first node. The main advantage of a doubly circular linked list is that we can access the last node of the linked list in constant time through the first node. The following diagram describes the structure of a doubly circular linked list:
+
+![Doubly Circular linked list](https://media.geeksforgeeks.org/wp-content/uploads/20240607183510/DoublyCircular--Linked-List.png)
+
+## Node Structure
+
+```cpp
+struct Node {    
+    int data;    
+    Node* next;
+    // Node* prev;  // For doubly linked lists
+};
+```
+
+## Basic Operations
+
+| Operation | Description | Time Complexity | Space Complexity |
+|-----------|-------------|-----------------|-------------------|
+| insertAtBeginning | Add new node at start | O(1) | O(1) |
+| insertAtEnd | Add new node at end | O(n) | O(1) |
+| insertAtPosition | Add node at specific position | O(n) | O(1) |
+| deleteFromBeginning | Remove head node | O(1) | O(1) |
+| deleteFromEnd | Remove last node | O(n) | O(1) |
+| deleteFromPosition | Remove node from given position | O(n) | O(1) |
+| Display | Print all node values | O(n) | O(1) |
+
+## Key Algorithms
+
+### insertAtBeginning
+1. Create a new node
+2. Point the new Node’s next pointer to the current head.
+3. Update the head of the linked list as the new node.
+
+![](https://media.geeksforgeeks.org/wp-content/uploads/20240607192011/Insert-At-First-Linked-List.png)
+
+### insertAtEnd
+1. Create a new Node
+2. If the linked list is empty, update the head as the new node.
+3. Otherwise traverse till the last node of the linked list.
+4. Update the next pointer of the last node from NULL to new node.
+
+![](https://media.geeksforgeeks.org/wp-content/uploads/20240607192010/Insert-At-End-Linked-List.png)
+
+### insertAtPosition
+
+1. Check if the provided position by the user is a valid poistion.
+2. Create a new node.
+3. Find the node at position -1.
+4. Update the next pointer of the new node to the next pointer of the current node.
+5. Update the next pointer of the current node to new node.
+
+![](https://media.geeksforgeeks.org/wp-content/uploads/20240607192009/Insert-After-Position-Linked-List.png)
+
+### deleteFromBeginning
+1. Check whether the Head of the linked list is not NULL. If Head is equal to NULL return as the linked list is empty, there is no node present for deletion.
+2. Store the head of the linked list in a temp pointer.
+3. Update the head of the linked list to next node.
+4. Delete the temporary node stored in the temp pointer.
+
+![](https://media.geeksforgeeks.org/wp-content/uploads/20240607192007/Delete-First-Position-Linked-List.png)
+
+### deleteFromEnd
+1. Verify whether the linked is empty or not before deletion.
+2. If the linked list has only one node, delete head and set head to NULL.
+3. Traverse till the second last node of the linked list.
+4. Store the last node of the linked list in a temp pointer.
+5. Pointer the next pointer of the second last node to NULL.
+6. Delete the node represented by the temp pointer.
+
+![](https://media.geeksforgeeks.org/wp-content/uploads/20240607192009/Delete-Last-Position-Linked-List.png)
+
+### deleteFromPosition
+
+1. Check if the provided postion by the users is a valid position in the linked list or not.
+2. Find the node at position -1.
+3. Save node to be deleted in a temp pointer.
+4. Set the next pointer of the current node to the next pointer of the node to be deleted.
+5. Set the next pointer of temp to NULL.
+6. Delete the node represented by temp pointer.
+
+![](https://media.geeksforgeeks.org/wp-content/uploads/20240607192008/Delete-From-Middle-Linked-List.png)
