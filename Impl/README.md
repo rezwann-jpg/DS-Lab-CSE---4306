@@ -545,3 +545,55 @@ struct Node {
 6. Delete the node represented by temp pointer.
 
 ![](https://media.geeksforgeeks.org/wp-content/uploads/20240607192008/Delete-From-Middle-Linked-List.png)
+
+# Tree Data Structure Terminologies
+
+### 1. Node
+- Definition: Fundamental unit of a tree data structure.
+- Characteristics:
+  - Hierarchical structure to represent and organize data
+  - Collection of nodes connected by edges
+  - Hierarchical relationship between nodes
+  - Topmost node is called the root
+  - Nodes below root are child nodes
+  - Each node can have multiple children
+  - Recursive structure
+  - Non-linear Nature
+  - Data not stored sequentially/linearly
+  - Arranged on multiple levels (hierarchical)
+- Types:
+  - Root node
+  - Parent node
+  - Child node
+  - Leaf node
+  - Internal node
+### 2. Root Node
+- The topmost node in the tree hierarchy.
+- Has no parent
+- Entry point for tree traversal
+### 3. Parent Node
+- Predecessor of a node
+### 4. Child Node
+- Immediate successor of a node
+### 5. Leaf Node (External Node)
+- A node that has no children.
+### 6. Internal Node
+- A node that has at least one child.
+### 7. Sibling Nodes
+- Nodes that share the same parent.
+### 8. Ancestor Node
+- Any node on the path from the root to a given node.
+### 9. Descendant Node
+- Any node reachable by repeated proceeding from parent to child.
+### 10. Level of a Node
+- The number of edges on the path from the root to the node.
+### 11. Height of a Node
+- The number of edges on the longest path from the node to a leaf.
+### 12. Depth of a Node
+- The number of edges from the root to the node.
+### 13. Subtree
+- A tree consisting of a node and all its descendants.
+### 14. Degree of a Node
+- The number of children a node has.
+
+![](https://media.geeksforgeeks.org/wp-content/uploads/20240424105009/Representation-of-Tree-Data-Structure.webp)
