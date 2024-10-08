@@ -597,3 +597,17 @@ struct Node {
 - The number of children a node has.
 
 ![](https://media.geeksforgeeks.org/wp-content/uploads/20240424105009/Representation-of-Tree-Data-Structure.webp)
+
+# BST Operations
+
+The in-order successor of a node is the node that comes immediately after the given node in the in-order traversal of the BST. In simpler terms, it's the next node in the sorted order of the BST.
+
+### Key Points:
+- If the node has a right child, the successor is the leftmost node in the right subtree.
+- If the node has no right child, the successor is one of its ancestors. Specifically, it is the lowest ancestor for which the node is in the left subtree.
+
+Steps to Find In-Order Successor:
+- Case 1: The node has a right subtree:
+  The in-order successor is the leftmost node in the right subtree of the current node.
+- Case 2: The node has no right subtree:
+  We move up to the parent node until we find a node that is the left child of its parent. The parent of that node will be the in-order successor.
